@@ -1,0 +1,269 @@
+@charset "utf-8";
+/* CSS Document */
+.container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container { width: 1000px !important;}
+body { font-size: 12px; font-family: Verdana, Geneva, sans-serif; line-height: 20px; }
+* { padding: 0; margin: 0;}
+#wrraper { text-align: center; float: left; width: 100%;}
+#container { width: 1000px; margin: auto; min-height: 594px; text-align: left;}
+.left_area { float: left; width: 311px; border-right: 1px solid #fff;}
+.right_area { float: left; width: 688px; /*text-transform: uppercase;*/ background: #fff; }
+
+/* start category area */
+.categories { float: left; width: 100%;}
+.cat_arrow_left { width: 42px; float: left; margin: 0; border-right: 1px solid #b8b8b8; }
+.cat_arrow_left a { float: left; width: 42px; background: #eeeeee; text-align: center; padding: 83px 0; }
+.cat_arrow_right { width: 42px; float: left; margin: 0px; }
+.cat_arrow_right a { float: left; width: 42px; background: #eeeeee; text-align: center; padding: 83px 0;}
+.categoreis_container { margin: 0 1px 0 0; float: left; width: 635px; height: 126px; overflow: hidden; background: #005c7a; }
+.cat_item {width: 105px; height: 62px; background:url(../images/blue.png) repeat-x #00F;
+text-align: center; text-decoration: none; color: #000; display:table-cell; 
+border-right: 1px solid #b8b8b8; border-bottom: 1px solid #b8b8b8; vertical-align: middle; overflow: hidden; float: left;}
+.cat_item a {width: 101px; height: 62px; /*background:url(../images/cat_btn_bg.png) no-repeat*/; 
+text-align: center;  text-decoration: none; color: #fff; display:table-cell; 
+ vertical-align: middle;}
+/* end category area */
+ 
+/* start sub category area */
+.sub_categories { float: left; width: 100%; margin: 8px 0 0 0; height:377px; overflow-y: hidden; cursor:pointer;}
+.sub_cat_arrow_left { width: 42px; float: left; margin: 0; border-right: 1px solid #b8b8b8; }
+.sub_cat_arrow_left a { float: left; width: 42px; background: #eeeeee; text-align: center; padding: 114px 0; }
+.sub_cat_arrow_right { width: 26px; float: left; margin: 0px; }
+.sub_cat_arrow_right a { float: left; width: 25px; background:url(../images/sidebar.png) repeat-y #944D00; text-align: center; padding: 52px 0;}
+.sub_categoreis_container { margin: 0 1px 0 0; float: left; width: 635px; height: 460px; overflow: hidden; background: #b05c01;}
+.sub_cat_item {width: 126px; height: 125px;background:url(../images/black_img.png) no-repeat #000;/*105X62*/
+text-align: center; text-decoration: none; color: #000; display:table-cell; 
+border-right: 1px solid #000; border-bottom: 1px solid #000; vertical-align: middle; overflow: hidden; float: left;}
+
+/*.sub_cat_item a {width: 126px; height: 125px; 
+text-align: center;  text-decoration: none; color: #fff; display:table-cell; 
+ vertical-align: middle;}*/
+ 
+.imdadleft_btn{
+	 position:absolute; top:0px; padding:6px 4px 5px 5px; width:66px; height:22px; 
+	 background:url(../images/upper-black.png) repeat-x #000; border-top:1px solid #fff; border-right:1px solid #fff;
+	  border-bottom:1px solid #fff; 
+	 z-index:9999; color:#fff; float:left; text-align:center; cursor:pointer
+	 }
+
+.cat_item:hover {background:url(../images/black.png) repeat-x #000;}
+/*.sub_cat_item:hover {background:url(../images/blue.png) repeat-x #00F;}
+.sub_cat_item:focus { background: #000;}*/
+.bot_btn:hover {text-decoration: none; color:#fff}
+.cat_item a:hover, a:focus { text-decoration: underline; color: #fff !important;}
+ /* end sub category area */
+ 
+.bottom_buttons { float: left; width: 100%; margin:0;}
+.bottom_buttons_container { width: 100%;}
+.bot_btn { float: left; width: 113px; height: 35px; background:url(../images/button_top.png) repeat-x #944D00;
+border-bottom: 1px solid #fff; border-right: 1px solid #fff; text-align: center; display: table-cell; 
+vertical-align: middle;}
+
+.bot_btn a { text-decoration: none; color: #fff; display: table-cell; vertical-align: middle; width: 98px; height: 38px;} 
+.bot_btn a:hover {text-decoration: none;color: #fff;}
+.table_waiter_top { float: left; width: 100%; background: #000; height: 66px; border-bottom: 1px solid #fff; color: #fff;}  
+.table_waiter_top div { float: left; margin: 0px 2px 0px 0px;}
+.table_waiter_top div label { float: left; text-align: right; margin: 2px 2px 0 0; width: 50px; font-weight:bold;}
+.table_waiter_top div input { border: 1px solid #999; border-radius: 6px; padding: 5px; width: 110px; margin: 0 !important }
+.table_status { float: left; width: 95px;}
+.table_heading { float: left; background:url(../images/order_title_bg.png) repeat-x; padding: 7px 0; text-align: center; width: 95px;}
+.table_status_contents { float: left; background: #cbcbcb; width: 95px; text-align: center; height: 199px;
+border-top: 1px solid #fff; border-bottom: 1px solid #fff}
+.order_status { float: left; background: #000000; height: 235px; width: 311px; color: #fff;}
+.order_status a { color: #fff; text-decoration: underline ;}
+.order_status a:hover { color: #FD9C34; text-decoration: underline;}
+.order_status .order_heading { background: #fff; padding: 0; 
+color: #000; font-weight: bold; padding: 5px 0; text-align: center !important;}
+.order_status .bill_row { float: left; width: 100%;}
+.order_status #bill_header { background: #fff; float: left; width: 100%;}
+.order_status .order_frist { float: left; width: 30px; text-align: center;}
+.order_status .order_second { float: left; width: 140px; text-align: center !important; }
+.order_status .order_third { float: left; width: 24px; text-align:center; }
+.order_status .order_fourth { float: left; width: 50px;text-align:center; }
+.order_status .order_fifth { float: left; width: 50px; text-align:center; }
+.order_status .order_fifth_item { float: left; width: 50px;text-align:center; }
+.order_payment_status { float: left; width: 140px; line-height: 30px}
+.order_payment_status div { float: left; width: 100%; text-align: center;   background: #000;
+}
+.box .title { color: #fff;}
+.order_payment_status .box { border-bottom: 1px solid #fff; padding: 10px 0;}
+.order_payment_status .title { font-size: 17px; text-transform: uppercase; float: left; width: 100%; text-align: center; font-weight: bold;}
+.order_payment_status .conts { float: left; color: #fff000; font-size: 28px; }
+.calculater { float: left; background: linear-gradient(#C3C3C3, #C3C3C3); width: 170px; height: 242px;
+	border-left: 1px solid #FFFFFF;
+	border-bottom: 1px solid #FFFFFF;
+}
+.tablearea { float: left;}
+#calculator {
+	width: 166px;
+	height: auto;
+	
+	margin: 0px auto;
+	padding: 4px 2px;
+
+	background: #000;
+	
+
+	
+}
+
+/* Top portion */
+.top span.clear {
+	float: left;
+}
+
+/* Inset shadow on the screen to create indent */
+.top .screen {
+	height: 40px;
+	width: 139px;
+	float: left;
+	padding: 0 10px;
+	background: #fff;
+	border-radius: 3px;
+	box-shadow: inset 0px 4px rgba(0, 0, 0, 0.2);
+	margin: 0 0 10px 3px;
+	/* Typography */
+	font-size: 17px;
+	line-height: 40px;
+	color: white;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+	text-align: right;
+	letter-spacing: 1px;
+	color: #000;
+}
+
+/* Clear floats */
+.keys, .top {overflow: hidden;}
+
+/* Applying same to the keys */
+.keys span, .top span.clear {
+	float: left;
+	position: relative;
+	top: 0;
+	cursor: pointer;
+	width: 49px;
+	height: 40px;
+	background: #fff;	
+	border-radius: 3px;
+	box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+	
+	margin: 3px;
+	
+	color: #000;
+	line-height: 36px;
+	text-align: center;
+	
+	/* prevent selection of text inside keys */
+	user-select: none;
+	
+	/* Smoothing out hover and active states using css3 transitions */
+	transition: all 0.2s ease;
+	font-size: 28px;
+}
+
+/* Remove right margins from operator keys */
+/* style different type of keys (operators/evaluate/clear) differently */
+.keys span.operator {
+	background: #FFF0F5;
+	margin-right: 0;
+}
+
+.keys span.eval {
+	background: #f1ff92;
+	box-shadow: 0px 4px #9da853;
+	color: #888e5f;
+}
+
+.top span.clear {
+	background: #ff9fa8;
+	box-shadow: 0px 4px #ff7c87;
+	color: white;
+}
+
+/* Some hover effects */
+.keys span:hover {
+	background: #FF8400;
+	box-shadow: 0px 4px #FD9C34;
+	color: white;
+}
+
+.keys span.eval:hover {
+	background: #FF8400;
+	box-shadow: 0px 4px #FD9C34;
+	color: #ffffff;
+}
+
+.top span.clear:hover {
+	background: #f68991;
+	box-shadow: 0px 4px #d3545d;
+	color: white;
+}
+
+/* Simulating "pressed" effect on active state of the keys by removing the box-shadow and moving the keys down a bit */
+.keys span:active {
+	box-shadow: 0px 0px #6b54d3;
+	top: 4px;
+}
+
+.keys span.eval:active {
+	box-shadow: 0px 0px #717a33;
+	top: 4px;
+}
+
+.top span.clear:active {
+	top: 4px;
+	box-shadow: 0px 0px #d3545d;
+}
+
+.right_area a:hover{
+	color:#fff;
+	text-decoration:none;
+	}
+	
+	@media print{@page {size: landscape}}
+	
+	.btn{
+   
+    border: 0 none;
+    border-radius: 0 0 0 0;
+    box-shadow: 1px 0 1px #203891, 0 1px 1px #3852B1, 2px 1px 1px #203891, 1px 2px 1px #3852B1, 3px 2px 1px #203891, 2px 3px 1px #3852B1, 4px 3px 1px #203891, 3px 4px 1px #3852B1, 5px 4px 1px #203891, 4px 5px 1px #3852B1, 6px 5px 1px #203891;
+    color: #FFFFFF;
+    display: inline-block;
+    font-family: 'Gotham Rounded A','Gotham Rounded B',"proxima-nova-soft",sans-serif;
+    line-height: 1.4;
+    outline: 0 none;
+   
+    position: relative;
+    top: -5px;
+    white-space: nowrap;
+}
+ul, ol { margin: 0 0 0px 22px !important;}
+
+#screen_div {
+background: none repeat scroll 0 0 #000;clear: left;height: 42px;margin: 0;width: 300px; line-height: 15px; color: #fff; padding: 2px 0;
+padding:1px 5px;
+}
+
+#tables_div {clear: left;margin: 0;}
+#tables_div span { display:block;  float:left; margin: 0 !important;}
+#tables_div span a {background: none repeat scroll 0 0 #fff;    float: left;    font-size: 18px;    margin: 1px;    padding: 2px 7px; color: #000;}
+#tables_div span a:focus { color: #000 !important;}
+#tables_div {padding: 4px 2px !important;}
+
+
+
+.categoreis_container { background: #000 !important;} 
+.sub_categoreis_container { background: #000 !important;}
+.bx-wrapper .bx-viewport { left: 0 !important; background: none !important;}
+
+
+.sub_categories .sub_cat_arrow_right a { padding: 219px 0; }
+.catimg { float: left; width: 100%; text-align: right;}
+.catimg img { margin: auto !important;}
+.tablearea label, input, button, select, textarea { font-size: 11px !important; margin: 0 !important;}
+.tablearea{ font-size: 11px !important;}
+.top_header_container { float: left; width: 100%;}
+.header_left{ width: 308px; float: left; background: #fff; height: 70px; border: 2px solid #000;}
+.header_right {float:left; width: 688px; height: 70px; background: #000;}
+.header_top_btns {float:left; width: 688px; height: 34px;}
+.header_bottom_btns {float:left; width: 688px; height: 34px;  border-top: 1px solid #fff; 
+}

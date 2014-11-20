@@ -1,0 +1,35 @@
+<head>
+<script src="Scripts/jquery-1.8.0.min.js" type="text/javascript"></script>
+<script src="Scripts/jquery.msgBox.js" type="text/javascript"></script>
+<link href="Styles/msgBoxLight.css" rel="stylesheet" type="text/css">
+<script>
+$(function(){
+
+$.msgBox({ type: "prompt",
+    title: "Log In",
+    inputs: [
+    { header: "User Name", type: "text", name: "userName" },
+    { header: "Password", type: "password", name: "password" },
+    { header: "Remember me", type: "checkbox", name: "rememberMe", value: "theValue" }],
+    buttons: [
+    { value: "Login" }, {value:"Cancel"}],
+    success: function (result, values) {
+        var v = result + " has been clicked\n";
+        $(values).each(function (index, input) {
+            v += input.name + " : " + input.value + 
+            (input.checked != null ? (" - checked: " + input.checked) : "") + "\n";
+        });
+        alert(v);
+    }
+});
+
+
+});
+</script>
+</head>
+
+<body>
+
+
+
+</body>

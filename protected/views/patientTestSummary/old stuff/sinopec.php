@@ -1,0 +1,252 @@
+<?php
+$test_summary_id = (int)$_GET['id'];
+
+$res_summary = Yii::app()->db->createCommand()->select("examination_date, klt_no, patient_id, panel_id, price, remarks")->from("patient_test_summary")->where("id = $test_summary_id")->queryRow();
+$examination_date = date("d/m/Y",strtotime($res_summary['examination_date']));
+$klt_no = $res_summary['klt_no'];
+$patient_id = $res_summary['patient_id'];
+$panel_id = $res_summary['panel_id'];
+$price = $res_summary['price'];
+$summary_remarks = $res_summary['remarks'];
+
+$res_patient = Yii::app()->db->createCommand()->select("*")->from("patient")->where("id = $patient_id")->queryRow();
+$reg_no = $res_patient['reg_no'];
+$referrer_id = $res_patient['referrer_id'];
+if(!empty($referrer_id)){ $recruiting_agent = Referrer::model()->find("id = $referrer_id")->name; }
+$ref_no = ($res_patient['ref_no']=='')?"---":$res_patient['ref_no'];
+$name = $res_patient['name'];
+$father_name = $res_patient['father_name'];
+$phone = $res_patient['phone'];
+$age = $res_patient['age'];
+$address = $res_patient['address'];
+$cnic = str_replace("-", "", $res_patient['cnic']);
+$arr_nic = str_split($cnic);
+
+
+//$visa_type = $res_patient['visa_type'];
+$visa_type = ($res_patient['visa_type']==1)?"Work":"Student";
+
+$passport_no = $res_patient['passport_no'];
+
+$gender = ($res_patient['gender']==1)?"Male":"Female";
+$marital_status = ($res_patient['marital_status']=='M')?"Married":"Single";
+
+$place_date_of_issue = $res_patient['place_date_of_issue'];
+$position_applied_for = $res_patient['position_applied_for'];
+//$recruiting_agent = $res_patient['recruiting_agent'];
+$photo_file_name = $res_patient['photo_file_name'];
+
+
+if(!empty($res_patient['country'])){
+$country = Yii::app()->db->createCommand()->select("name")->from("country")->where("id = ". $res_patient['country'])->queryScalar();
+}
+if(!empty($res_patient['country_applied_for'])){
+$country_applied_for = Yii::app()->db->createCommand()->select("name")->from("country")->where("id = ". $res_patient['country_applied_for'])->queryScalar();
+}
+
+/////////////////////Get Test values for this test summary id
+//print_r($arr_physical_tests);
+$test_res_arr = $this->Mytest($test_summary_id);
+$ar = json_decode($test_res_arr);
+if(count($ar) == 0){ echo "Test Values not found for this test."; exit;}
+
+///////////// following is the code to get xray remarks value from the database .
+$array = (array) $ar; // convert object into array
+$xray_findings = '';
+foreach($array as $key => $val){ 	
+	$pos1 = stripos($key, 'X-RAY');	
+ 	if ($pos1 === false){  }
+	else { $remarks = PatientTestDetail::model()->find("test_summary_id = $test_summary_id AND test_id = 91")->remarks;  break; } 		 
+  } 	
+$variable = str_replace("\n", '-+-', $remarks); // for windows 
+$list = explode("-+-", $variable);
+
+$total2 = count($list);
+$last_line = $list[$total2-1];
+$xray_conclusion = explode("IMPRESSION:", $last_line);
+if(count($xray_conclusion) > 1){ $conclusion = $xray_conclusion[1]; array_pop($list); } 
+
+$str = "";
+foreach($list as $v){ $str .= "<li>".$v."</li>";}
+$str = "<ul>".$str."</ul>";
+//echo $str;
+//exit;
+
+//else { echo "No Test is Registered for this Panel. Please Register Some tests for this Panel before further proceeding."; exit; }
+
+$arr_tests = Yii::app()->db->createCommand()->select("name")->from("test")->where("$cond")->order("main_id")->queryAll();
+
+$test_res_arr = $this->Mytest($test_summary_id);
+$ar = json_decode($test_res_arr);
+
+$physician_name = Settings::model()->getPhysicianName(16);
+ ?>
+
+<div id="wrapper">
+<div id="header">
+
+<div class="logo">
+<img src="<?php echo Yii::app()->baseUrl; ?>/images/Untitled-1.jpg" />
+</div>
+<div class="logo2">
+<img src="<?php echo Yii::app()->baseUrl; ?>/images/nayab-logo.png" />
+<p> <b>Main Branch:</b> 6-Pak Pavilion Plaza 65-E Fazal-e-Haq Road Blue Area<br />
+Islamabad. Ph: 0092-51-2276163 - 2827986&ensp;Fax: 0092-51-2827910<br />
+<b>Email:</b> nayablabs@yahoo.com  <b>&emsp;Website:</b> www.nayablabs.com</p>
+</div>
+</div><!--header close!-->
+
+<div id="top2"><b>Pre-Employment Medical Fitness Certificate</b></div>
+
+<div id="top">(Issued in accordance with specified criteria from employer)</div>
+
+<div id="top3">
+<div id="date-exam"><span>Date of Examination</span>&emsp;<span id="cat1"><b><?php echo $examination_date; ?></b></span></div>    
+<div id="mr-no"><span>M.R. No.</span>&emsp;<span id="cat2"><b><?php echo $reg_no; ?></b></span></div>
+</div> <!-- close all tops!-->
+
+
+<div class="main">
+<h3>Personal Details</h3>
+<p>
+<span>Name: </span>&emsp;  <span id="cat3"><b><?php echo strtoupper($name); ?></b></span> &emsp;<span>Father's Name: </span>&emsp;
+<span id="cat4"><b><?php echo strtoupper($father_name); ?></b></span> 
+</p>
+
+<p>
+<span>Age: </span>&emsp; &emsp; &nbsp;<span id="cat5"><b><?php echo $age; ?></b></span> &emsp;<span>Referred by: </span>&emsp;&emsp;&ensp;
+<span id="cat4"><b><?php echo $recruiting_agent; ?></b></span> 
+</p><br />
+
+<div class="nic">
+<div class="n-text">NIC #</div>&emsp;&emsp;
+
+<?php 
+foreach($arr_nic as $k =>$v){
+if($k==0){ echo "<div class=\"d1\">".$v."</div>"; }
+else if($k==5 || $k==12){ echo "<div class=\"d2\">-</div>"; echo "<div class=\"d2\">".$v."</div>"; }
+else{ echo "<div class=\"d2\">".$v."</div>"; } 	
+}
+?>
+</div><br />
+<p>
+<span>Address: </span>&emsp; &emsp;&nbsp;<span id="cat6"><b><?php echo ucwords(strtolower($address)); ?></b></span>  
+</p>
+
+</div><!--close bio!-->
+
+<div class="find-all">
+<h3>Measurements of Physical findings </h3>
+<div class="find-left">
+<div class="ech"><span>Height&emsp;  &emsp;&emsp;&emsp;</span><span id="cat7"><b><?php echo $ar->Height; ?></b></span></div>
+<div class="ech"><span>Blood Pressure</span>&emsp;<span id="cat7"><b><?php echo ucwords(strtolower($ar->BloodPressure)); ?></b></span></div>
+<div class="ech"><span>Vision (Rt Eye)</span>&emsp;<span id="cat7"><b><?php echo ucwords(strtolower($ar->VisionRtEye)); ?></b></span></div>
+<div class="ech"><span>Other</span>&emsp;&emsp; &emsp;&emsp; &emsp;<span id="cat7"><b><?php echo ucwords(strtolower($ar->Other)); ?></b></span></div>
+</div>
+
+<div class="find-right">
+<div class="ech"><span>Weight &emsp; &emsp; </span>&emsp;<span id="cat7"><b><?php echo $ar->Weight; ?></b></span></div>
+<div class="ech"><span>Pulse &emsp;&emsp;&emsp;</span> &emsp;<span id="cat7"><b><?php echo $ar->Pulse; ?></b></span></div>
+<div class="ech"><span>Vision (Lt Eye) </span><span id="cat7"><b><?php echo ucwords(strtolower($ar->VisionLtEye)); ?></b></span></div>
+
+</div>
+
+</div>
+
+<div class="laboratory">
+
+<div class="lab-finding">
+<h3>Laboratory Finding</h3>
+<div class="tst-left">
+<div id="test">TESTS</div> <div id="result">RESULTS</div>
+
+<div id="detail-test">
+<span><b>(A) Blood </b></span><br>
+<div id="test1">1. Full Blood <br />&emsp;  Count</div> <div id="result1"><br />&emsp;<?php echo ucwords(strtolower($ar->FullBloodCount)); ?></div>
+<div id="test1">2. ESR </div> <div id="result1">&emsp;<?php echo ucwords(strtolower($ar->ESR)); ?></div>
+<div id="test1">3. Blood Group</div> <div id="result1">&emsp;<?php echo ucwords(strtolower($ar->BloodGroup)); ?></div>
+<div id="test1">&emsp;Rh-Factor </div> <div id="result1">&emsp;<?php echo ucwords(strtolower($ar->Rhfactor)); ?></div>
+<div id="test1">ECG </div> <div id="result1">&emsp;<?php echo ucwords(strtolower($ar->ECG)); ?></div><br>
+</div>
+
+<div id="detail-test2">
+<span><b>Urine</b></span><br>
+<div id="test1">1. Glucose</div> <div id="result1">&emsp;<?php echo ucwords(strtolower($ar->Glucose)); ?></div>
+<div id="test1">2. Protein </div> <div id="result1">&emsp;<?php echo ucwords(strtolower($ar->Protein)); ?></div>
+<div id="test1">3. Blood</div> <div id="result1">&emsp;<?php echo ucwords(strtolower($ar->Blood)); ?></div>
+</div>
+
+
+</div>
+
+</div><!-- close tst-left!-->
+<div class="x-ray">
+<h3>Chest X-ray PA (view)</h3>
+
+<div class="observ">
+<h3>Observations:</h3><br>
+<?php if(!empty($str)) { echo $str;  }
+else{
+?>
+ <ul style="height:100px; overflow:hidden; ">
+ <li>There are fice lumber type vertebral bodies.</li> 
+ <li>The spinal alignment, vertebral body height and<br>disk spcaces are within normal limits.</li>
+ <li>no acute fracture or spondylolisthesis.</li>
+ <li>The sacroiliac joints are intact bilaterally.</li>
+ <li>There are fice lumber type vertebral bodies.</li> 
+ <li>The spinal alignment, vertebral body height and<br>disk spcaces are within normal limits.</li>
+ <li>no acute fracture or spondylolisthesis.</li>
+ <li>The sacroiliac joints are intact bilaterally.</li>
+ </ul>
+ <?php } ?>
+<span>IMPRESSION:</span>
+   <ul style="height:20px; overflow:hidden; ">
+ <li><?php echo $conclusion; ?></li> 
+ </ul>
+
+</div>
+
+</div>
+
+</div><!-- close lab-finding!-->
+
+<div class="ray">
+Other Findings:- &emsp; &emsp;<span id="cat8"><?php echo ucwords(strtolower($ar->OtherFindings)); ?></span><br />
+<span>Remarks&emsp; &emsp;&emsp;</span>
+<span id="cat8"><b><?php echo ucwords(strtolower($ar->Remarks)); ?></b></span>
+<br />
+<span>&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;</span>
+<span id="cat8"></span><br />
+
+</div><!-- close ray !-->
+
+
+
+
+
+
+<div id="fit-decision">
+Fitness Decision: As per set out Paremeters / criteria / standards he may be considered  <span id="cat19"><?php echo $summary_remarks; ?></span>
+<div id="left-data">
+<p><span>Signature of Examination Physician:- </span><span id="cat9"></span></p>
+
+<p><span>Name:- &emsp; &emsp; &emsp; </span><span id="cat10"><b><?php echo $physician_name; ?></b></span><br />
+<span>&emsp; &emsp; &emsp;&emsp;&emsp; &emsp; </span><span id="cat11"><b></b></span></p>
+
+
+</div>
+<div id="right-photo">
+<?php if(!empty($photo_file_name)){?>
+<img src="<?php echo Yii::app()->baseUrl."/patient_photos/".$photo_file_name; ?>" name="photo" height="156" width="115" title="photo" />
+<?php }?>
+</div>
+
+</div><!-- close of fit-decision!-->
+<div id="stamp">
+Office Stamp &emsp;<span id="cat12"></span> &emsp;Signature of Examining Physican&emsp;<span id="cat13"></span><br />
+<p>This Medical Certificate is Valid only for 3 Months.</p>
+</div>
+
+<div class="foot">ISO 9001: 2000 Certified</div>
+
+</div>

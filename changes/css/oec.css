@@ -1,0 +1,438 @@
+@charset "utf-8";
+/* CSS Document */
+
+#wrapper{ 
+width:760px; 
+height:1089px;
+ /* background: #099; */
+color:#000000;
+margin-top:15px;
+}
+
+
+
+#top {
+	color:#CCC;
+	font-size:13pt;
+	font-family: "Times New Roman";
+	float:left;
+	width:588px;
+	margin-top:18px;}
+	
+#top b{
+	margin-left:327px;
+	}	
+
+#top2{
+	color:#CCC;
+	font-size:13pt;
+	font-family: "Comic Sans MS";
+	float:left;
+	width:588px;}
+	
+#top2 b{
+	margin-left:235px;
+	}
+
+body {
+	font-family: Arial,Verdana,sans-serif;
+	color: #FFF;
+	background-color: #FFFFFF;
+	margin: 0px;
+	padding: 0px;
+	font-size: 11px;
+}
+
+#header {
+	height:182px;
+	width:100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+  
+#left-logo{
+	float:left; 
+	width:600px;
+	/* background:#0FF; */
+	height:120px;
+	margin-left: 16px;}
+	
+	
+.logo{
+width:137px;
+height:99px;
+float:left;
+margin-left:12px;
+margin-top:1px;}
+
+.logo2{
+width:415px;
+height:108px;
+float:left;
+margin-left:32px;
+margin-top:2px;
+}
+.logo2 img{
+margin-left:63px;
+
+}
+.logo2 p{
+color:#000000;
+text-align:center;
+font-size:8pt;
+font-family:'Verdana';
+line-height:15px;
+margin-top:11px;
+letter-spacing:-0.3px;
+}
+.photoright{
+width:115.2px;
+height: 156.48px;
+float:right;
+border: 1px solid;
+margin-right:10px;
+margin-top:15px;
+
+}
+
+.bio{
+background:#FFFFFF;
+margin-left:7px;
+border:1px solid #000000;
+width:749px;
+float:left;
+padding-bottom:1px;
+color:#000000; }
+
+.bio span{
+margin: 2px 0 0 7px;
+font-size:9pt;
+color:#333333;
+font-family: "Times New Roman";
+font-weight: normal;
+}
+
+.bio p{
+marging-top:3px;	}
+
+
+
+#cat1{
+ display: inline-block;
+ border-bottom: #000 1px solid; 
+ min-width:235px; 
+ line-height:0px;
+ height:8px;
+}
+
+#cat1 b{
+	font-size:9pt;
+	color:#000;
+	margin-left:8px;
+	font-family:"Times New Roman";
+	}
+
+
+#cat2{
+ display: inline-block;
+ border-bottom: #000 1px solid; 
+ min-width:102px;
+ line-height:0px;
+ height:8px; 
+}
+
+#cat2 b{
+	font-size:9pt;
+	color:#000;
+	margin-left:8px;
+	font-family:"Times New Roman";
+	}
+
+
+
+#cat3{
+ display: inline-block;
+ border-bottom: #000 1px solid; 
+ min-width:158px;
+ line-height:0px;
+ height:8px;
+}
+
+#cat3 b{
+	font-size:9pt;
+	color:#000;
+	margin-left:8px;
+	font-family:"Times New Roman";
+	}
+
+
+
+
+#cat4{display: inline-block;
+
+ border-bottom: #000 1px solid; 
+ min-width:359px; 
+ height:15px;
+}
+
+#cat4 b{
+	font-size:9pt;
+	color:#000;
+	margin-left:8px;
+	font-family:"Times New Roman";
+	}
+
+
+#cat5{display: inline-block;
+ font-weight:bold;
+ border-bottom: #000 1px solid; 
+ min-width:274px;
+ height:15px;}
+
+#cat5 b{
+	font-size:9pt;
+	color:#000;
+	margin-left:8px;
+	font-family:"Times New Roman";
+	}
+ 
+ 
+ 
+#cat6{
+display: inline-block;
+ border-bottom: #000 1px solid; 
+ min-width:121px;
+ margin-left:15px; 
+height:15px;}
+
+#cat6 b{
+	font-size:9pt;
+	color:#000;
+	margin-left:8px;
+	font-family:"Times New Roman";
+	}
+ 
+
+
+
+#cat7{display: inline-block;
+ font-weight:bold;
+ border-bottom: #000 1px solid; 
+ min-width:65px;
+ height:15px;
+}
+#cat7 b{
+	font-size:9pt;
+	color:#000;
+	margin-left:8px;
+	font-family:"Times New Roman";
+	}
+ 
+
+
+
+#cat8{display: inline-block;
+ font-weight:bold;
+ border-bottom: #000 1px solid; 
+ min-width:63px;
+ height:15px; 
+}
+
+#cat8 b{
+	font-size:9pt;
+	color:#000;
+	margin-left:8px;
+	font-family:"Times New Roman";
+	}
+ 
+
+#cat9{display: inline-block;
+ font-weight:bold;
+ border-bottom:#000 1px solid; 
+ min-width:155px; 
+ height:15Px;
+}
+#cat9 b{
+	font-size:9pt;
+	color:#000;
+	margin-left:8px;
+	font-family:"Times New Roman";
+	}
+
+#cat10{display: inline-block;
+ border-bottom:#000 1px solid; 
+ min-width:364px;
+ height:15px;
+}
+#cat10 b{
+	font-size:9pt;
+	color:#000;
+	margin-left:8px;
+	font-family:"Times New Roman";
+	}
+
+#cat11{
+ display: inline-block;
+ border-bottom: #000 1px solid; 
+ min-width:240px;
+ height:15px;
+}
+
+#cat11 b{
+	font-size:9pt;
+	color:#000;
+	margin-left:8px;
+	font-family:"Times New Roman";
+	}
+
+
+
+
+#cat12{
+ display: inline-block;
+ border-bottom: #000 1px solid; 
+ min-width:302px; 
+  height:15px;
+}
+#cat12 b{
+	font-size:9pt;
+	color:#000;
+	margin-left:8px;
+	font-family:"Times New Roman";
+	}
+
+
+#cat13{
+ display: inline-block;
+ border-bottom: #000 1px solid; 
+ min-width:259px;;
+ height:15px;
+}
+#cat13 b{
+	font-size:9pt;
+	color:#000;
+	margin-left:8px;
+	font-family:"Times New Roman";
+	}
+	
+	
+#cat14{
+ display: inline-block;
+ border-bottom: #000 1px solid; 
+ min-width:259px;;
+ height:15px;
+}
+#cat14 b{
+	font-size:9pt;
+	color:#000;
+	margin-left:8px;
+	font-family:"Times New Roman";
+	}	
+
+
+#cat15{
+ display: inline-block;
+ border-bottom: #000 1px solid; 
+ min-width:258px;;
+ height:15px;
+}
+#cat15 b{
+	font-size:9pt;
+	color:#000;
+	margin-left:8px;
+	font-family:"Times New Roman";
+	}
+	
+#cat16{
+ display: inline-block;
+ border-bottom: #000 1px solid; 
+ min-width:275px;;
+ height:15px;
+}
+#cat16 b{
+	font-size:9pt;
+	color:#000;
+	margin-left:8px;
+	font-family:"Times New Roman";
+	}
+	
+#cat17{
+ display: inline-block;
+ border-bottom: #000 1px solid; 
+ min-width:290px;;
+ height:15px;
+}
+#cat17 b{
+	font-size:9pt;
+	color:#000;
+	margin-left:8px;
+	font-family:"Times New Roman";
+	}		
+	
+	#cat18{
+ display: inline-block;
+ border-bottom: #000 1px solid; 
+ min-width:320px;;
+ height:15px;
+ margin-left:43px;
+}
+#cat18 b{
+	font-size:9pt;
+	color:#000;
+	margin-left:8px;
+	font-family:"Times New Roman";
+	}		
+	.remarks p{
+		margin-top:3px; !important
+		font-size:9pt;
+		font-family:'Arial';
+		margin-left:7px;}
+
+#cat19{
+ display: inline-block;
+ border: #000 1px solid; 
+ min-width:50px;;
+ height:20px;
+ margin-left:5px;
+ text-align:center;
+}
+#cat19 b{
+	font-size:12pt;
+	color:#000;
+	font-family:'Arial';
+	}		
+#cat20{
+ display: inline-block;
+ border-bottom: #000 1px solid; 
+ min-width:200px;
+ margin-left:5px;
+}
+#cat20 b{
+	font-size:9pt;
+	color:#000;
+	margin-left:8px;
+	font-family:"Times New Roman";
+	}		
+	
+#cat21{
+ display: inline-block;
+ border-bottom: #000 1px solid; 
+ min-width:200px;;
+ height:15px;
+ margin-left:23px;
+}
+#cat21 b{
+	font-size:9pt;
+	color:#000;
+	margin-left:8px;
+	font-family:"Times New Roman";
+	}			
+
+
+
+
+@media print{ 
+.logo, .logo2,.foot, .photoright{
+        display: none !important;
+    } 
+}
